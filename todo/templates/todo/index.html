@@ -1,0 +1,9 @@
+<h1>this is indexView</h1>
+{% for task in tasks %}
+  <ul>
+    <li>
+      <a href="{% url 'todo:detail' task.pk %}">{{task.title}}</a>
+      <p>{{task.created_at}}</p>
+    </li>
+  </ul>
+{% endfor %}
