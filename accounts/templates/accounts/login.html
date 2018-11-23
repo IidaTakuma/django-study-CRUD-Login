@@ -1,0 +1,7 @@
+<h2>ログイン画面</h2>
+<a href="{% url 'accounts:signup' %}">アカウント作成</a>
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-primary btn-block">Log in</button>
+</form>

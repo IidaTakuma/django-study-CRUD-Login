@@ -1,4 +1,10 @@
 <h1>this is indexView</h1>
+<p>{{user.username}}さんがログインしています</p>
+<p>
+  <a href = "{% url 'accounts:logout' %}">ログアウト</a>
+</p>
+  <a href = "{% url 'accounts:login' %}">ログイン</a>
+</p>
 <a href ="{% url 'todo:create' %}">新規作成</a>
 {% for task in tasks %}
   <ul>
