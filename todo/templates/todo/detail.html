@@ -1,5 +1,6 @@
 <h1>this is DetailView</h1>
 <a href ="{% url 'todo:index' %}">一覧に戻る</a>
+<a href ="{% url 'todo:edit' task.pk %}">編集する</a>
 <h2>{{task.title}}</h2>
 <p>{{task.description}}</p>
 <p>作成日時：{{task.created_at}}</p>

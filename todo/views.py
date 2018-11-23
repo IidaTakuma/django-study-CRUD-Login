@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView,DetailView,CreateView
+from django.views.generic import ListView,DetailView,UpdateView,CreateView
 from .models import Task
 # Create your views here.
 class IndexView(ListView):
@@ -15,7 +15,15 @@ class DetailView(DetailView):
     context_object_name = 'task'
     template_name = 'todo/detail.html'
 
-# class CreateTaskView(CreateView):
-#     model = task
-#     template_name = 'todo/create.html'
-#     success_url = "/"
+class EditView(UpdateView):
+    model = Task
+    context_object_name = 'task'
+    fields = ("title","description",)
+    template_name = 'todo/edit.html'
+    success_url = "/"
+
+class CreateView(CreateView):
+    model = Task
+    fields = ("title","description","created_by",)
+    template_name = 'todo/create.html'
+    success_url = "/"
