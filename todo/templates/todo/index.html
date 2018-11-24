@@ -4,13 +4,13 @@
 
   <h1>this is indexView</h1>
   <a href ="{% url 'todo:create' %}">新規作成</a>
-  {% for task in tasks %}
-    <ul class="list-group">
+  <ul class="list-group">
+    {% for task in tasks %}
       <li class="list-group-item">
         <a href="{% url 'todo:detail' task.pk %}">{{task.title}}</a>
         <div>{{task.created_at}}</div>
       </li>
-    </ul>
-  {% endfor %}
+    {% endfor %}
+  </ul>
 
 {% endblock content %}
