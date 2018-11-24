@@ -1,8 +1,14 @@
-<h1>This is CreateView</h1>
-<a href ="{% url 'todo:index' %}">一覧に戻る</a>
-<form method="post">
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>This is CreateView</h1>
+  <a href ="{% url 'todo:index' %}">一覧に戻る</a>
+  <form method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
-    <button type="submit">save</button>
-</form>
+    <button class="btn btn-primary" type="submit">save</button>
+  </form>
+
+{% endblock content %}

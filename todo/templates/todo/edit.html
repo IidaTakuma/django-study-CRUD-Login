@@ -1,8 +1,14 @@
-<h1>This is EditView</h1>
-<a href ="{% url 'todo:detail' task.pk %}">戻る</a>
-<form method="post">
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>This is EditView</h1>
+  <a href ="{% url 'todo:detail' task.pk %}">戻る</a>
+  <form method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
-    <button type="submit">save</button>
-</form>
+    <button class="btn btn-primary" type="submit">save</button>
+  </form>
+
+{% endblock content %}
