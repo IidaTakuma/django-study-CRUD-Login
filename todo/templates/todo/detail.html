@@ -5,6 +5,7 @@
   <h1>this is DetailView</h1>
   <a href ="{% url 'todo:index' %}">一覧に戻る</a>
   <a href ="{% url 'todo:edit' task.pk %}">編集する</a>
+  <a href ="{% url 'todo:delete' task.pk %}">削除する</a>
   <div class="card">
     <div class="card-body">
       <h3 class="card-title">{{task.title}}</h2>

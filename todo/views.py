@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView,DetailView,UpdateView,CreateView
+from django.views.generic import ListView,DetailView,UpdateView,CreateView,DeleteView
 from .models import Task
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -41,3 +41,9 @@ class CreateView(CreateView):
         post.created_by = self.request.user
         post.save()
         return redirect('todo:index')
+
+@method_decorator(login_required, name='dispatch')
+class DeleteView(DeleteView):
+    model = Task
+    template_name = 'todo/delete.html'
+    success_url = "/"
