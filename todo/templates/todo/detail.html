@@ -1,7 +1,17 @@
-<h1>this is DetailView</h1>
-<a href ="{% url 'todo:index' %}">一覧に戻る</a>
-<a href ="{% url 'todo:edit' task.pk %}">編集する</a>
-<h2>{{task.title}}</h2>
-<p>{{task.description}}</p>
-<p>作成日時：{{task.created_at}}</p>
-<p>{{task.created_by}}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>this is DetailView</h1>
+  <a href ="{% url 'todo:index' %}">一覧に戻る</a>
+  <a href ="{% url 'todo:edit' task.pk %}">編集する</a>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">{{task.title}}</h2>
+      <p class="card-text">{{task.description | linebreaksbr}}</p>
+      <p class="card-text">作成日時：{{task.created_at}}</p>
+      <p class="card-text">{{task.created_by}}</p>
+    </div>
+  </div>
+
+{% endblock content %}

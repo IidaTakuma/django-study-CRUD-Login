@@ -4,6 +4,7 @@ from .models import Task
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from .forms import TaskForm
 # Create your views here.
 @method_decorator(login_required, name='dispatch')
 class IndexView(ListView):
@@ -23,15 +24,15 @@ class DetailView(DetailView):
 @method_decorator(login_required, name='dispatch')
 class EditView(UpdateView):
     model = Task
+    form_class = TaskForm
     context_object_name = 'task'
-    fields = ("title","description",)
     template_name = 'todo/edit.html'
     success_url = "/"
 
 @method_decorator(login_required, name='dispatch')
 class CreateView(CreateView):
     model = Task
-    fields = ("title","description",)
+    form_class = TaskForm
     template_name = 'todo/create.html'
     success_url = "/"
 
