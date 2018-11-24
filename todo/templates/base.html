@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Daicrud</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+    <link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css' %}">
+  </head>
+  <body>
+    <div class="page-header">
+      <h1><a href="{% url 'todo:index' %}" class="top-menu"><i class="fa fa-home"></i></a>
+        Daicrud</a></h1>
+    </div>
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-10">
+          {% block content %}
+          {% endblock %}
+        </div>
+        <div class="col-md-2">
+          {% include 'todo/side.html' %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
