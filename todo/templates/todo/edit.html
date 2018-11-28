@@ -3,7 +3,7 @@
 
 {% block content %}
 
-  <h1>This is EditView</h1>
+  <h1>編集ページ</h1>
   <a href ="{% url 'todo:detail' task.pk %}">戻る</a>
   <form method="post">
     {% csrf_token %}

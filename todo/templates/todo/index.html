@@ -2,13 +2,17 @@
 
 {% block content %}
 
-  <h1>this is indexView</h1>
+  <h1>Todo一覧</h1>
   <a href ="{% url 'todo:create' %}">新規作成</a>
   <ul class="list-group">
     {% for task in tasks %}
       <li class="list-group-item">
         <a href="{% url 'todo:detail' task.pk %}">{{task.title}}</a>
         <div>{{task.created_at}}</div>
+        <form action="{% url 'todo:done' task.pk %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="完了">
+        </form>
       </li>
     {% endfor %}
   </ul>
