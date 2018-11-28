@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404,render, redirect
 from django.views.generic import ListView,DetailView,UpdateView,CreateView,DeleteView
 from .models import Task
 from django.contrib.auth.models import User
@@ -47,3 +47,10 @@ class DeleteView(DeleteView):
     model = Task
     template_name = 'todo/delete.html'
     success_url = "/"
+
+def done(request,pk):
+    task = get_object_or_404(Task, id=pk)
+    if request.method == "POST":
+        task.is_done = True
+        task.save()
+    return redirect('todo:index')
